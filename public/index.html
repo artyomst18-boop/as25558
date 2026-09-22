@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence-led reconstruction of Divorce Party International Ltd. at 31 August 2026.">
+  <title>DPI Financial Reconstruction</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="DPI reconstruction home">
+      <span class="brand-mark">DPI</span>
+      <span>Financial Reconstruction</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#statements">Statements</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#evidence">Evidence</a>
+      <a href="/review">Review trail</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="case-heading">
+      <div>
+        <p class="eyebrow">DPI-HT-01 · 31 August 2026</p>
+        <h1>Reviewed financial reconstruction</h1>
+        <p class="lede">A traceable reconstruction from bank records, contracts, supplier confirmations, payroll data and post-takeover evidence.</p>
+      </div>
+      <div class="identity" aria-label="Student details">
+        <span>Prepared by</span>
+        <strong id="student-name">—</strong>
+        <span id="student-id">—</span>
+      </div>
+    </section>
+
+    <section class="kpi-grid" aria-label="Key results">
+      <article class="kpi"><span>Revenue</span><strong id="kpi-revenue">—</strong><small>recognised in period</small></article>
+      <article class="kpi"><span>Reviewed profit</span><strong id="kpi-profit">—</strong><small>before unquantified insurance</small></article>
+      <article class="kpi"><span>Closing cash</span><strong id="kpi-cash">—</strong><small>bank-confirmed</small></article>
+      <article class="kpi"><span>Total assets</span><strong id="kpi-assets">—</strong><small>balance sheet</small></article>
+    </section>
+
+    <section class="finding-strip" aria-label="Key conclusion">
+      <div><span class="signal amber"></span><strong>Material uncertainty remains visible.</strong></div>
+      <p>The selected inventory balance is €121,000. A €9,000 conflict with the movement schedule remains open and is shown in the reconciliation.</p>
+    </section>
+
+    <section id="statements" class="section-block">
+      <div class="section-heading">
+        <div><p class="eyebrow">Financial statements</p><h2>Three connected views of the same reconstruction</h2></div>
+        <a class="text-link" href="/submission.json">Open submission.json ↗</a>
+      </div>
+      <div id="statement-grid" class="statement-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="reconciliations" class="section-block split-section">
+      <div>
+        <p class="eyebrow">Control checks</p>
+        <h2>Reconciliations</h2>
+        <div id="reconciliation-list" class="check-list"></div>
+      </div>
+      <aside class="conclusion-card">
+        <span>Accounting conclusion</span>
+        <p id="accounting-conclusion"></p>
+      </aside>
+    </section>
+
+    <section id="decisions" class="section-block">
+      <div class="section-heading decision-heading">
+        <div><p class="eyebrow">Decision register</p><h2>100 certified decisions</h2></div>
+        <div class="controls">
+          <label><span class="sr-only">Search decisions</span><input id="decision-search" type="search" placeholder="Search ID or treatment"></label>
+          <label><span class="sr-only">Filter decisions</span><select id="decision-filter"><option value="all">All decisions</option><option value="material_judgment">Material judgments</option><option value="operational">Operational</option><option value="low">Low confidence</option></select></label>
+        </div>
+      </div>
+      <p id="decision-count" class="result-count"></p>
+      <div class="table-shell"><table><thead><tr><th>ID</th><th>Tier</th><th>Question</th><th>Final treatment</th><th>Evidence</th><th>Confidence</th></tr></thead><tbody id="decision-table"></tbody></table></div>
+    </section>
+
+    <section id="schedules" class="section-block">
+      <div class="section-heading"><div><p class="eyebrow">Supporting schedules</p><h2>How the reported numbers were built</h2></div></div>
+      <div id="schedule-tabs" class="tab-row" role="tablist" aria-label="Schedules"></div>
+      <div id="schedule-panel" class="table-shell schedule-panel"></div>
+    </section>
+
+    <section id="evidence" class="section-block">
+      <div class="section-heading"><div><p class="eyebrow">Evidence register</p><h2>Source strength and conflicts</h2></div></div>
+      <div id="evidence-grid" class="evidence-grid"></div>
+    </section>
+
+    <section id="uncertainties" class="section-block">
+      <div class="section-heading"><div><p class="eyebrow">Unresolved matters</p><h2>Uncertainty is part of the conclusion</h2></div></div>
+      <div id="uncertainty-grid" class="uncertainty-grid"></div>
+    </section>
+
+    <section id="board" class="board-section">
+      <p class="eyebrow light">Board recommendation</p>
+      <h2 id="board-decision"></h2>
+      <div id="board-actions" class="board-actions"></div>
+    </section>
+  </main>
+
+  <footer><span>DPI-HT-01</span><span>Static evidence-led submission · No login required</span></footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
