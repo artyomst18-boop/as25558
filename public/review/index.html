@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compact assessor review of 25 material judgments in the DPI financial reconstruction.">
+  <title>AI Review Trail · DPI Financial Reconstruction</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="review-page">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">DPI</span><span>AI Review Trail</span></a>
+    <nav aria-label="Review navigation"><a href="/">Main submission</a><a href="/submission.json">JSON</a></nav>
+  </header>
+  <main>
+    <section class="review-heading">
+      <div><p class="eyebrow">Assessor view · DPI-HT-01</p><h1>25 material judgments</h1><p class="lede">First AI position, independent challenge, student certification, evidence and financial effect in one compact view.</p></div>
+      <div class="review-summary" id="review-summary"></div>
+    </section>
+    <section class="review-alerts" id="review-alerts" aria-label="Items requiring attention"></section>
+    <section class="low-confidence-panel" aria-labelledby="low-confidence-title">
+      <div><p class="eyebrow">Evidence limitations</p><h2 id="low-confidence-title">Low-confidence decisions</h2></div>
+      <div id="low-confidence-list" class="low-confidence-list"></div>
+    </section>
+    <section>
+      <div class="controls review-controls">
+        <label><span class="sr-only">Search review trail</span><input id="review-search" type="search" placeholder="Search material judgments"></label>
+        <label><span class="sr-only">Filter flags</span><select id="review-filter"><option value="all">All 25 judgments</option><option value="disagreement">Agent differences</option><option value="override">Student overrides</option><option value="uncertainty">Unresolved uncertainty</option></select></label>
+      </div>
+      <p id="review-count" class="result-count"></p>
+      <div id="review-list" class="review-list"></div>
+    </section>
+  </main>
+  <footer><span>Artjoms Staselovičs · as25558</span><span>Certified review trail</span></footer>
+  <script src="/review.js" defer></script>
+</body>
+</html>
