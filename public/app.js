@@ -2,7 +2,7 @@ const euro = new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR"
 const amount = (value) => value === null || value === "" ? "—" : euro.format(value);
 const esc = (value) => String(value ?? "").replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
 const lineAmount = (lines, name) => lines.find(item => item.line === name)?.amountEUR;
-const totalNames = new Set(["Revenue", "Gross profit", "Profit before unquantified insurance", "Closing cash", "Total assets", "Total liabilities", "Equity", "Total liabilities and equity", "Balance check"]);
+const totalNames = new Set(["Revenue", "Gross profit", "Net profit", "Closing cash", "Total assets", "Total liabilities", "Equity", "Total liabilities and equity", "Balance check"]);
 
 async function loadSubmission() {
   const response = await fetch("/submission.json", { cache: "no-store" });
@@ -66,7 +66,7 @@ loadSubmission().then(data => {
   document.querySelector("#student-name").textContent = data.student.name;
   document.querySelector("#student-id").textContent = data.student.id;
   document.querySelector("#kpi-revenue").textContent = amount(lineAmount(data.statements.profitAndLoss, "Revenue"));
-  document.querySelector("#kpi-profit").textContent = amount(lineAmount(data.statements.profitAndLoss, "Profit before unquantified insurance"));
+  document.querySelector("#kpi-profit").textContent = amount(lineAmount(data.statements.profitAndLoss, "Net profit"));
   document.querySelector("#kpi-cash").textContent = amount(lineAmount(data.statements.cashFlow, "Closing cash"));
   document.querySelector("#kpi-assets").textContent = amount(lineAmount(data.statements.balanceSheet, "Total assets"));
   document.querySelector("#statement-grid").innerHTML = [renderStatement("Profit and loss", data.statements.profitAndLoss), renderStatement("Cash flow", data.statements.cashFlow), renderStatement("Balance sheet", data.statements.balanceSheet)].join("");

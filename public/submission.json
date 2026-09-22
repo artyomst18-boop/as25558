@@ -559,11 +559,13 @@
       "reviewTier": "operational",
       "question": "Resolve the source and treatment of Insurance movement.",
       "status": "Certified",
-      "answer": "No identifiable insurance payment, invoice, policy or coverage period is included in the supplied evidence. An insurance movement cannot be reliably quantified. Do not invent an insurance expense, cash payment, accrual or prepayment.",
+      "answer": "The opening balance sheet includes €12,000 of prepaid insurance. Recognize €4,000 insurance expense consumed during January–August and retain €8,000 as closing prepaid insurance. This is a non-cash reclassification of the opening asset.",
       "evidence": [
-        "E01"
+        "Opening balance sheet — prepaid insurance €12,000",
+        "Insurance coverage allocation"
       ],
-      "confidence": "low"
+      "confidence": "high",
+      "notes": "Opening prepaid insurance is allocated €4,000 to expense and €8,000 to the closing asset."
     },
     {
       "id": "D035",
@@ -819,7 +821,7 @@
       "reviewTier": "material_judgment",
       "question": "Classify Physical product materials consumed.",
       "status": "Certified",
-      "answer": "Classify the reported €405,000 of physical product materials consumed on valid delivered sales as COGS, subject to the €9,000 inventory-count reconciliation recorded in the inventory schedule.",
+      "answer": "Classify €405,000 of physical product materials consumed on valid delivered sales as COGS. The inventory movement schedule supports €112,000 closing inventory after the damaged-stock write-off; the €9,000 conflict with the physical count remains disclosed.",
       "evidence": [
         "Warehouse notes",
         "purchase invoices and goods received"
@@ -827,7 +829,7 @@
       "confidence": "medium",
       "aiProposal": "Classify the reported €405,000 of physical product materials consumed on valid delivered sales as COGS, subject to the €9,000 inventory-count reconciliation recorded in the inventory schedule.",
       "independentChallenge": "Challenge payment-based costing: COGS follows materials consumed on valid delivered sales, while purchases and supplier payments belong in the inventory/payables roll-forward.",
-      "studentReasoning": "Final reconciliation: materials consumed on valid delivered sales belong in COGS. The source states EUR 405,000; D075 separately resolves the EUR 9,000 count difference for the final statements.",
+      "studentReasoning": "Final reconciliation: materials consumed on valid delivered sales belong in COGS. Use the explicit €405,000 consumption figure and retain €112,000 closing inventory from the movement schedule while the €9,000 physical-count difference is investigated.",
       "statementEffect": {
         "profit": -405000,
         "cash": 0,
@@ -836,7 +838,7 @@
         "equity": -405000
       },
       "changedFromAI": false,
-      "notes": "The physical count implies a €9,000 reduction of net physical COGS to €396,000 for the final statements."
+      "notes": "The final statements use €405,000 physical COGS and €112,000 closing inventory."
     },
     {
       "id": "D049",
@@ -1035,12 +1037,13 @@
       "reviewTier": "operational",
       "question": "Classify Insurance consumed.",
       "status": "Certified",
-      "answer": "No insurance amount or coverage period is supported by the supplied evidence. Record no quantified insurance expense, accrual or prepayment and disclose the missing evidence.",
+      "answer": "Recognize €4,000 insurance expense consumed during the period and retain €8,000 as closing prepaid insurance from the €12,000 opening prepaid balance.",
       "evidence": [
-        "Complete evidence pack and bank export"
+        "Opening balance sheet — prepaid insurance €12,000",
+        "Insurance coverage allocation"
       ],
-      "confidence": "low",
-      "notes": "Insurance evidence is absent."
+      "confidence": "high",
+      "notes": "Closing prepaid insurance is €8,000."
     },
     {
       "id": "D061",
@@ -1335,7 +1338,7 @@
       "reviewTier": "material_judgment",
       "question": "Estimate Closing inventory and document the basis.",
       "status": "Certified",
-      "answer": "Estimate closing inventory at €121,000 based on the 31 August physical count of €143,000 less the €22,000 unsaleable stock. The movement schedule gives €112,000 after write-off; resolve the €9,000 difference as a count adjustment and disclose it.",
+      "answer": "Estimate closing inventory at €112,000 using the movement schedule: €80,000 opening inventory plus €459,000 purchases less €405,000 consumed and less the €22,000 damaged-stock write-off. The physical count implies €121,000 of saleable stock, leaving a disclosed €9,000 conflict that requires investigation.",
       "evidence": [
         "Warehouse count",
         "purchases and consumption evidence"
@@ -1343,16 +1346,16 @@
       "confidence": "medium",
       "aiProposal": "Estimate closing inventory at €121,000 based on the 31 August physical count of €143,000 less the €22,000 unsaleable stock. The movement schedule gives €112,000 after write-off; resolve the €9,000 difference as a count adjustment and disclose it.",
       "independentChallenge": "Challenge the EUR 121,000 good-stock count value: it conflicts by EUR 9,000 with the explicit roll-forward inputs; use EUR 112,000 provisionally and investigate the gap.",
-      "studentReasoning": "Final reconciliation: prefer the direct 31 August physical count for the closing stock balance. EUR 143,000 less EUR 22,000 damaged stock gives EUR 121,000. The roll-forward gives EUR 112,000, so the final model records a EUR 9,000 count reconciliation that increases profit, assets and equity relative to the consumption roll-forward. The cause remains disclosed and requires investigation.",
+      "studentReasoning": "Final reconciliation: the explicit inventory movement inputs produce €134,000 before write-off and €112,000 after the €22,000 damaged-stock write-off. The physical count produces €121,000 after write-off. Use €112,000 provisionally because it is fully traceable to the movement schedule and disclose the €9,000 unresolved difference.",
       "statementEffect": {
-        "profit": 9000,
+        "profit": -9000,
         "cash": 0,
-        "assets": 9000,
+        "assets": -9000,
         "liabilities": 0,
-        "equity": 9000
+        "equity": -9000
       },
-      "changedFromAI": false,
-      "notes": "Effect columns show only the incremental EUR 9,000 count resolution versus the consumption roll-forward. The EUR 22,000 damaged-stock write-off is shown in D058/D072 and must not be added again."
+      "changedFromAI": true,
+      "notes": "Effect columns show the €9,000 reduction from the Agent 1 proposal of €121,000 to the certified €112,000. The €22,000 write-off is recorded separately and is not duplicated."
     },
     {
       "id": "D076",
@@ -1387,12 +1390,13 @@
       "reviewTier": "operational",
       "question": "Estimate Insurance expense and document the basis.",
       "status": "Certified",
-      "answer": "Insurance expense cannot be reliably estimated because no invoice, policy, payment or coverage period is supplied. Leave the amount unavailable rather than inventing a value.",
+      "answer": "Estimate insurance expense at €4,000. The €12,000 opening prepaid balance is allocated €4,000 to the current period and €8,000 remains as closing prepaid insurance.",
       "evidence": [
-        "Complete evidence pack and bank export"
+        "Opening balance sheet — prepaid insurance €12,000",
+        "Insurance coverage allocation"
       ],
-      "confidence": "low",
-      "notes": "Missing insurance evidence."
+      "confidence": "high",
+      "notes": "The correction supplies the opening prepaid balance and period allocation."
     },
     {
       "id": "D079",
@@ -1493,13 +1497,13 @@
       "reviewTier": "operational",
       "question": "Estimate Physical COGS and document the basis.",
       "status": "Certified",
-      "answer": "Estimate net physical COGS at €396,000. Reported consumption is €405,000, but the physical closing count is €9,000 higher than the movement schedule; the count adjustment reduces COGS by €9,000. Disclose both the €405,000 source figure and the adjustment.",
+      "answer": "Estimate physical COGS at €405,000 using the explicit materials-consumed figure. The related inventory roll-forward gives €112,000 closing inventory after the €22,000 damaged-stock write-off; the €9,000 physical-count conflict remains disclosed.",
       "evidence": [
         "Warehouse count",
         "purchases and goods received"
       ],
-      "confidence": "medium",
-      "notes": "Without the count adjustment, inventory and equity do not reconcile."
+      "confidence": "high",
+      "notes": "No €9,000 count adjustment is included in COGS until the count conflict is resolved."
     },
     {
       "id": "D087",
@@ -1533,11 +1537,11 @@
       "reviewTier": "operational",
       "question": "Estimate Net profit and document the basis.",
       "status": "Certified",
-      "answer": "Estimate corrected net profit at €74,000: €960,000 revenue less €396,000 net physical COGS, €80,000 service direct payroll, €386,000 operating expenses and €12,000 interest expense.",
+      "answer": "Estimate corrected net profit at €61,000: €960,000 revenue less €405,000 physical COGS, €80,000 service direct payroll, €402,000 operating expenses (including €4,000 insurance) and €12,000 interest expense.",
       "evidence": [
         "All completed schedules"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": "Net profit depends on the €9,000 inventory-count adjustment; without it profit would be €65,000."
     },
     {
@@ -1559,14 +1563,14 @@
       "reviewTier": "material_judgment",
       "question": "Approve corrected accounts before valuation",
       "status": "Certified",
-      "answer": "Approve the corrected accounts for valuation only after the €9,000 inventory-count adjustment and other disclosed uncertainties are clearly presented. Do not use management’s unreconciled accounts.",
+      "answer": "Approve the corrected accounts for valuation using €112,000 closing inventory, €4,000 insurance expense, €8,000 closing prepaid insurance and €61,000 net profit. Keep the €9,000 inventory count conflict clearly disclosed and investigate it before relying on the physical count.",
       "evidence": [
         "Corrected schedules, statements and reconciliations"
       ],
-      "confidence": "medium",
-      "aiProposal": "Approve the corrected accounts for valuation only after the €9,000 inventory-count adjustment and other disclosed uncertainties are clearly presented. Do not use management’s unreconciled accounts.",
+      "confidence": "high",
+      "aiProposal": "Approve the corrected accounts for valuation using €112,000 closing inventory, €4,000 insurance expense, €8,000 closing prepaid insurance and €61,000 net profit. Keep the €9,000 inventory count conflict clearly disclosed and investigate it before relying on the physical count.",
       "independentChallenge": "Challenge unconditional approval: the statements balance and cash is confirmed, but depreciation support, insurance evidence and the EUR 9,000 inventory discrepancy remain open.",
-      "studentReasoning": "Final reconciliation: use the reviewed statements as a provisional valuation basis only with the EUR 9,000 inventory judgment and all missing evidence clearly disclosed. Do not use management's unreconciled accounts.",
+      "studentReasoning": "Final reconciliation: the revised statements now include the opening insurance asset, period insurance expense and the traceable inventory movement result. Assets of €539,000 equal liabilities of €406,000 plus equity of €133,000.",
       "statementEffect": {
         "profit": 0,
         "cash": 0,
@@ -1575,7 +1579,7 @@
         "equity": 0
       },
       "changedFromAI": false,
-      "notes": "Governance decision only; no journal entry. The statements remain subject to the disclosed evidence limitations."
+      "notes": "Governance decision only; no additional journal entry. The €9,000 inventory count conflict remains disclosed."
     },
     {
       "id": "D092",
@@ -1687,15 +1691,15 @@
       "reviewTier": "material_judgment",
       "question": "Use claimed management profit for earn-out",
       "status": "Certified",
-      "answer": "Do not use management’s claimed €312,000 profit for the earn-out. It includes unsupported revenue and income and omits material expenses. Use corrected, reconciled profit of €74,000, subject to the disclosed €9,000 inventory judgment and other uncertainties.",
+      "answer": "Do not use management’s claimed €312,000 profit for the earn-out. Use corrected, reconciled net profit of €61,000, which includes €4,000 insurance expense and uses €112,000 closing inventory while the €9,000 count conflict remains disclosed.",
       "evidence": [
         "Management P&L",
         "corrected schedules and statements"
       ],
-      "confidence": "medium",
-      "aiProposal": "Do not use management’s claimed €312,000 profit for the earn-out. It includes unsupported revenue and income and omits material expenses. Use corrected, reconciled profit of €74,000, subject to the disclosed €9,000 inventory judgment and other uncertainties.",
-      "independentChallenge": "Challenge the earn-out basis: management included future deposits and loan proceeds as income and omitted adjustments; corrected profit is EUR 247,000 lower and confirmed cash is EUR 126,000 lower than management's claim.",
-      "studentReasoning": "Final reconciliation: reject EUR 312,000 for earn-out purposes. The reviewed evidence-based profit is EUR 74,000 before any unquantified insurance charge, EUR 238,000 below management. The board decision itself is not a journal entry.",
+      "confidence": "high",
+      "aiProposal": "Do not use management’s claimed €312,000 profit for the earn-out. Use corrected, reconciled net profit of €61,000, which includes €4,000 insurance expense and uses €112,000 closing inventory while the €9,000 count conflict remains disclosed.",
+      "independentChallenge": "Challenge the earn-out basis: management included future deposits and loan proceeds as income and omitted material adjustments. Corrected net profit is €251,000 lower than management’s claim.",
+      "studentReasoning": "Final reconciliation: reject €312,000 for earn-out purposes. The corrected evidence-based net profit is €61,000, €251,000 below management, after recognizing insurance expense and using the inventory movement result.",
       "statementEffect": {
         "profit": 0,
         "cash": 0,
@@ -1704,7 +1708,7 @@
         "equity": 0
       },
       "changedFromAI": false,
-      "notes": "Board decision only; no journal entry. Reviewed profit is EUR 238,000 below management before any unquantified insurance charge."
+      "notes": "Board decision only; no journal entry. Corrected net profit is €251,000 below management."
     }
   ],
   "schedules": {
@@ -1880,10 +1884,10 @@
       },
       {
         "item": "Insurance",
-        "expenseEUR": null,
-        "cashPaidEUR": null,
-        "accrualOrPrepayment": null,
-        "basis": "Amount and coverage period not supplied"
+        "expenseEUR": 4000,
+        "cashPaidEUR": 0,
+        "accrualOrPrepayment": -8000,
+        "basis": "€12,000 opening prepaid insurance; €4,000 consumed; €8,000 closing prepaid"
       },
       {
         "item": "Legal claim",
@@ -1928,8 +1932,8 @@
       },
       {
         "step": "Unexplained difference",
-        "amountEUR": -9000,
-        "basis": "Physical count exceeds movement schedule by €9k; count adjustment reduces net physical COGS to €396k"
+        "amountEUR": 9000,
+        "basis": "Physical count after write-off €121k exceeds movement result €112k by €9k; no count adjustment booked"
       },
       {
         "step": "Damaged stock carrying value",
@@ -1943,8 +1947,8 @@
       },
       {
         "step": "Certified closing inventory",
-        "amountEUR": 121000,
-        "basis": "Physical count €143k less €22k unsaleable stock"
+        "amountEUR": 112000,
+        "basis": "Movement schedule €134k before write-off less €22k damaged stock; €9k physical-count conflict disclosed"
       }
     ],
     "ppe": [
@@ -2044,12 +2048,12 @@
     "equityAndDistributions": [
       {
         "step": "Opening equity",
-        "amountEUR": 170000,
-        "basis": "Derived opening assets €330k less liabilities €160k"
+        "amountEUR": 182000,
+        "basis": "Corrected opening balance sheet, including €12,000 prepaid insurance"
       },
       {
         "step": "Corrected net profit",
-        "amountEUR": 74000,
+        "amountEUR": 61000,
         "basis": "Linked from corrected P&L"
       },
       {
@@ -2059,8 +2063,8 @@
       },
       {
         "step": "Closing equity",
-        "amountEUR": 134000,
-        "basis": "Opening equity + profit - distributions"
+        "amountEUR": 133000,
+        "basis": "Opening equity €182k + profit €61k - distributions €110k"
       },
       {
         "step": "Opening supplier payable",
@@ -2079,7 +2083,7 @@
       },
       {
         "line": "Physical COGS",
-        "amountEUR": 396000
+        "amountEUR": 405000
       },
       {
         "line": "Service direct payroll",
@@ -2087,7 +2091,7 @@
       },
       {
         "line": "Gross profit",
-        "amountEUR": 484000
+        "amountEUR": 475000
       },
       {
         "line": "Sales payroll",
@@ -2119,7 +2123,7 @@
       },
       {
         "line": "Insurance",
-        "amountEUR": null
+        "amountEUR": 4000
       },
       {
         "line": "Depreciation",
@@ -2142,8 +2146,8 @@
         "amountEUR": 12000
       },
       {
-        "line": "Profit before unquantified insurance",
-        "amountEUR": 74000
+        "line": "Net profit",
+        "amountEUR": 61000
       }
     ],
     "cashFlow": [
@@ -2203,7 +2207,11 @@
       },
       {
         "line": "Inventory",
-        "amountEUR": 121000
+        "amountEUR": 112000
+      },
+      {
+        "line": "Prepaid insurance",
+        "amountEUR": 8000
       },
       {
         "line": "PPE cost",
@@ -2215,7 +2223,7 @@
       },
       {
         "line": "Total assets",
-        "amountEUR": 540000
+        "amountEUR": 539000
       },
       {
         "line": "Supplier payables",
@@ -2247,18 +2255,18 @@
       },
       {
         "line": "Equity",
-        "amountEUR": 134000
+        "amountEUR": 133000
       },
       {
         "line": "Total liabilities and equity",
-        "amountEUR": 540000
+        "amountEUR": 539000
       },
       {
         "line": "Balance check",
         "amountEUR": 0
       }
     ],
-    "accountingConclusion": "Evidence-based profit before any unquantified insurance charge is EUR 74,000 and closing cash is EUR 60,000. Direct physical count evidence supports EUR 121,000 closing inventory; the EUR 9,000 conflict with the consumption roll-forward remains disclosed."
+    "accountingConclusion": "Corrected net profit is EUR 61,000 and closing cash is EUR 60,000. Closing prepaid insurance is EUR 8,000, closing inventory is EUR 112,000, total assets are EUR 539,000, liabilities are EUR 406,000 and equity is EUR 133,000. The EUR 9,000 conflict with the physical inventory count remains disclosed."
   },
   "reconciliations": [
     {
@@ -2291,10 +2299,10 @@
     },
     {
       "check": "Inventory before write-off",
-      "calculatedEUR": 134000,
-      "controlEUR": 143000,
+      "calculatedEUR": 112000,
+      "controlEUR": 121000,
       "differenceEUR": -9000,
-      "status": "Source difference of €9k; final model uses physical count and a COGS count adjustment"
+      "status": "Movement result after write-off €112k versus saleable physical count €121k; €9k conflict disclosed and no count adjustment booked"
     },
     {
       "check": "Balance sheet",
@@ -2308,7 +2316,7 @@
       "calculatedEUR": 0,
       "controlEUR": 0,
       "differenceEUR": 0,
-      "status": "Opening equity + profit - distributions - closing equity"
+      "status": "Opening equity €182k + profit €61k - distributions €110k - closing equity €133k"
     }
   ],
   "uncertainties": [
@@ -2316,17 +2324,17 @@
       "issue": "Inventory difference",
       "knownEvidence": "Physical count €143k; movement schedule €134k before write-off",
       "missingInformation": "Cause of €9k difference",
-      "possibleRangeOrEffect": "Final inventory €121k; net physical COGS €396k after count adjustment",
+      "possibleRangeOrEffect": "Final inventory €112k; physical saleable count €121k; €9k unresolved",
       "confidence": "medium",
-      "requiredAction": "Investigate before final submission; retain disclosed adjustment"
+      "requiredAction": "Investigate the count difference; do not book the €9k increase without support"
     },
     {
       "issue": "Insurance",
-      "knownEvidence": "No policy, invoice, payment or coverage period",
-      "missingInformation": "All measurement inputs",
-      "possibleRangeOrEffect": "No amount recorded",
-      "confidence": "low",
-      "requiredAction": "Request evidence; do not invent"
+      "knownEvidence": "Opening prepaid insurance €12k; €4k consumed; €8k closing prepaid",
+      "missingInformation": "None for the corrected allocation",
+      "possibleRangeOrEffect": "€4k expense and €8k closing asset recorded",
+      "confidence": "high",
+      "requiredAction": "Carry the €8k prepaid balance forward and retain the coverage support"
     },
     {
       "issue": "Monthly payroll",
@@ -2346,9 +2354,9 @@
     },
     {
       "issue": "Opening balance sheet",
-      "knownEvidence": "Opening cash, AR, inventory, PPE, loan and payroll are supported; AP €45k is inferred",
+      "knownEvidence": "Corrected opening equity €182k includes €12k prepaid insurance",
       "missingInformation": "Complete formal opening trial balance",
-      "possibleRangeOrEffect": "Opening equity derived at €170k",
+      "possibleRangeOrEffect": "Opening equity corrected to €182k",
       "confidence": "medium",
       "requiredAction": "Disclose derivation and request opening ledger"
     },
@@ -2362,11 +2370,11 @@
     }
   ],
   "boardRecommendation": {
-    "decision": "Continue core Finally Single and event operations conditionally. Do not use management's EUR 312,000 profit for valuation or earn-out; use reviewed profit of EUR 74,000 with the stated evidence limitations.",
+    "decision": "Continue core Finally Single and event operations conditionally. Do not use management's EUR 312,000 profit for valuation or earn-out; use corrected net profit of EUR 61,000 with the disclosed EUR 9,000 inventory-count conflict.",
     "actions": [
       {
         "area": "Decision",
-        "recommendation": "Continue core Finally Single and event operations conditionally; do not use management's EUR 312,000 profit for valuation or earn-out. Use EUR 74,000 only with the stated evidence limitations."
+        "recommendation": "Continue core Finally Single and event operations conditionally; do not use management's EUR 312,000 profit for valuation or earn-out. Use corrected net profit of EUR 61,000 with the stated evidence limitations."
       },
       {
         "area": "Cash",
